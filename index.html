@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Photography Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1> on top </h1>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+        <!-------------------------------------------------------------------------------------->
+
+        <!-- Clickable headphones -->
+        <img class="headphones" src="headphones.png" onclick="openPopup(0)" />
+
+        <!-- The popup container -->
+        <div id="popup">
+            <button id="prevCard" class="nav-btn" onclick="changeCard(-1)">‹</button>
+                <div class="popup-box" id="popupContent">
+                    <span class="close-btn" onclick="closePopup()">✖</span>
+                    <img id="popupImg" src="" alt="Popup Image">
+                    <h3 id="popupTitle">Title</h3>
+                    <p id="popupDesc">Description goes here...</p>
+                </div>
+        <button id="nextCard" class="nav-btn" onclick="changeCard(1)">›</button>
+        </div>
+        
+        <!-------------------------------------------------------------------------------------->
+
+        <!-- Clickable camera -->
+        <img class="camera" src="camera.png" onclick="openPopup(0)" />
+
+        <!-- The popup container -->
+        <div id="popup">
+            <button id="prevCard" class="nav-btn" onclick="changeCard(-1)">‹</button>
+                <div class="popup-box" id="popupContent">
+                    <span class="close-btn" onclick="closePopup()">✖</span>
+                    <img id="popupImg" src="" alt="Popup Image">
+                    <h3 id="popupTitle">Title</h3>
+                    <p id="popupDesc">Description goes here...</p>
+                </div>
+        <button id="nextCard" class="nav-btn" onclick="changeCard(1)">›</button>
+        </div>
+
+        <!-------------------------------------------------------------------------------------->
+
+        <!-- Clickable pencil and shavings -->
+        <img class="shavings" src="shavings.png" onclick="openPopup(0)" />
+        <img class="pencil" src="pencil.png" onclick="openPopup(0)" />
+
+        <!-- The popup container -->
+        <div id="popup">
+            <button id="prevCard" class="nav-btn" onclick="changeCard(-1)">‹</button>
+                <div class="popup-box" id="popupContent">
+                    <span class="close-btn" onclick="closePopup()">✖</span>
+                    <img id="popupImg" src="" alt="Popup Image">
+                    <h3 id="popupTitle">Title</h3>
+                    <p id="popupDesc">Description goes here...</p>
+                </div>
+        <button id="nextCard" class="nav-btn" onclick="changeCard(1)">›</button>
+        </div>
+
+
+
+    <script>
+        // Popup content array (customize this)
+            const cards = [
+                {
+                img: 'image1.jpg',
+                title: 'Photo 1',
+                desc: 'This is the description for photo 1.'
+                },
+                {
+                img: 'image2.jpg',
+                title: 'Photo 2',
+                desc: 'This is the description for photo 2.'
+                },
+                {
+                img: 'image3.jpg',
+                title: 'Photo 3',
+                desc: 'This is the description for photo 3.'
+                }
+            ];
+
+        let currentCard = 0;
+
+            function openPopup(index) {
+                currentCard = index;
+                updatePopup();
+                document.getElementById('popup').style.display = 'flex';
+            }
+
+            function closePopup() {
+                document.getElementById('popup').style.display = 'none';
+            }
+
+            function changeCard(n) {
+                currentCard += n;
+                if (currentCard < 0) currentCard = cards.length - 1;
+                if (currentCard >= cards.length) currentCard = 0;
+                updatePopup();
+            }
+
+            function updatePopup() {
+                const card = cards[currentCard];
+                document.getElementById('popupImg').src = card.img;
+                document.getElementById('popupTitle').textContent = card.title;
+                document.getElementById('popupDesc').textContent = card.desc;
+            }
+    </script>
+
+
+
+    </body>
+</html>

@@ -18,11 +18,17 @@
 
   <!-- Clickable items -->
   <img class="headphones animate-in" src="headphones.png" onclick="openPopup(['camera1.jpg', 'camera2.jpg', 'camera3.jpg'], 'Headphones', 'Great for music and focus.')" />
-  <img class="camera animate-in" src="camera.png" onclick="openPopup(['images/cheese.jpeg', 'images/yum.jpeg', 'images/IMG_0376.jpeg', 'images/just the two of us.jpeg', 'images/running.mp4'], 'say cheese!', 'These are a few photos from my canon g7x (despite the image being a fujifilm)')" />
+  <img class="camera animate-in" src="camera.png" onclick="openPopup(
+    ['images/cheese.jpeg', 'images/yum.jpeg', 'images/IMG_0376.jpeg', 'images/just the two of us.jpeg', 'images/running.mp4'], 
+    'say cheese!', 
+    `These are a few photos from my Canon G7X (even though the image is a Fujifilm lmao). I hope you enjoy looking through them as much as I enjoyed taking them! The last one is a short film in progress. Keep posted!
+    <a href='https://c22co.github.io/Photography-Portfolio/' target='_blank'>Click here to see more</a>.`
+  )" />
+
   <img class="shavings animate-in" src="shavings.png" onclick="openPopup(['camera1.jpg', 'camera2.jpg', 'camera3.jpg'], 'What’s left after your masterpiece.')" />
   <img class="pencil animate-in" src="pencil.png" onclick="openPopup(['camera1.jpg', 'camera2.jpg', 'camera3.jpg'], 'Pencil', 'Start your ideas here.')" />
-  <img class="laptop animate-in" src="Laptop.png" onclick="openPopup(['camera1.jpg', 'camera2.jpg', 'camera3.jpg'], 'Laptop', 'Your digital creation station.')" />
-  <img class="matcha animate-in" src="matcha.png" onclick="openPopup(['camera1.jpg', 'camera2.jpg', 'camera3.jpg'], 'Matcha', 'Creative fuel in a cup.')" />
+  <img class="laptop animate-in" src="Laptop.png" onclick="openPopup(['images/CAD.png', 'images/code.png', 'images/arduino.png'], 'Laptop', 'On my laptop, I am currently working on ')" />
+  <img class="matcha animate-in" src="matcha.png" onclick="openPopup(['images/microfoam.jpeg', 'images/matcha process.mp4', 'images/mixed matcha.jpeg', 'images/matcha strawberry.jpeg', 'images/matcha1.jpeg', 'images/matcha2.mp4'], 'Matcha', 'love love love whisking whisking whisking microfoam microfoam microfoam, i need a good affordable matcha that is not effected by the shortage :( ')" />
 
     <!-- Single popup -->
     <div id="popup">
@@ -50,7 +56,7 @@
 
             updateCarouselMedia();
             document.getElementById('popupTitle').textContent = title;
-            document.getElementById('popupDesc').textContent = desc;
+            document.getElementById('popupDesc').innerHTML = desc;
             document.getElementById('popup').style.display = 'flex';
         }
 

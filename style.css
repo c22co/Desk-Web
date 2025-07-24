@@ -89,42 +89,11 @@
     transition: color 0.3s;
     }
 
-    /* Modal base */
-    #popup {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background-color: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .popup-box {
-      background: white;
-      width: 320px;
-      max-width: 90vw;
-      border-radius: 15px;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    }
-
-    .popup-box img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .popup-box h3 {
-      margin: 0 0 10px;
-    }
-
-    .popup-box p {
-      font-size: 14px;
-      color: #444;
+    .nav-menu {
+    position: fixed;
+    top: 560px;
+    right: 1000px;
+    z-index:1000;
     }
 
     .close-btn {
@@ -147,54 +116,7 @@
       cursor: pointer;
       color: white;
     }
-
-    #prevCard { left: 10px; }
-    #nextCard { right: 10px; }
-     body {
-      font-family: Arial, sans-serif;
-    }
-
-    .headphones {
-      width: 200px;
-      cursor: pointer;
-    }
-
-    .camera {
-      width: 200px;
-      cursor: pointer;
-    }
-
-    .shavings {
-      width: 200px;
-      cursor: pointer;
-    }
-
-    .pencil {
-      width: 200px;
-      cursor: pointer;
-    }
-
-    .nav-menu {
-    position: fixed;
-    top: 560px;
-    right: 1000px;
-    z-index:1000;
-    }
-
-    .nav-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-    }
-
-    .nav-menu li a {
-    text-decoration: none;
-    color: #000000;
-    font-weight: bold;
-    transition: color 0.3s;
-    }
+    
 
     /* Modal base */
     #popup {

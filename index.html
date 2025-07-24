@@ -2,153 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Photography Portfolio</title>
+  <title>Minas Desk</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1> on top </h1>
+  <h1>minas desk</h1>
 
-    <nav class="nav-menu">
-        <ul>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+  <nav class="nav-menu">
+    <ul>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-        <!-------------------------------------------------------------------------------------->
+  <!-- Clickable items -->
+  <img class="headphones animate-in" src="headphones.png" onclick="openPopup(['camera1.jpg', 'camera2.jpg', 'camera3.jpg'], 'Headphones', 'Great for music and focus.')" />
+  <img class="camera animate-in" src="camera.png" onclick="openPopup(['images/cheese.jpeg', 'images/yum.jpeg', 'images/IMG_0376.jpeg', 'images/just the two of us.jpeg', 'images/running.mp4'], 'say cheese!', 'These are a few photos from my canon g7x (despite the image being a fujifilm)')" />
+  <img class="shavings animate-in" src="shavings.png" onclick="openPopup(['camera1.jpg', 'camera2.jpg', 'camera3.jpg'], 'What’s left after your masterpiece.')" />
+  <img class="pencil animate-in" src="pencil.png" onclick="openPopup(['camera1.jpg', 'camera2.jpg', 'camera3.jpg'], 'Pencil', 'Start your ideas here.')" />
+  <img class="laptop animate-in" src="Laptop.png" onclick="openPopup(['camera1.jpg', 'camera2.jpg', 'camera3.jpg'], 'Laptop', 'Your digital creation station.')" />
+  <img class="matcha animate-in" src="matcha.png" onclick="openPopup(['camera1.jpg', 'camera2.jpg', 'camera3.jpg'], 'Matcha', 'Creative fuel in a cup.')" />
 
-        <!-- Clickable headphones -->
-        <img class="headphones" src="headphones.png" onclick="openPopup(0)" />
+    <!-- Single popup -->
+    <div id="popup">
+        <div class="popup-box" id="popupContent">
+            <span class="close-btn" onclick="closePopup()">✖</span>
+            
+            <div class="carousel-container">
+                <button class="carousel-btn" onclick="changeCarousel(-1)">‹</button>
+                <div id="carouselMedia" class="carousel-media"></div>
+                <button class="carousel-btn" onclick="changeCarousel(1)">›</button>
+            </div>
 
-        <!-- The popup container -->
-        <div id="popup">
-            <button id="prevCard" class="nav-btn" onclick="changeCard(-1)">‹</button>
-                <div class="popup-box" id="popupContent">
-                    <span class="close-btn" onclick="closePopup()">✖</span>
-                    <img id="popupImg" src="" alt="Popup Image">
-                    <h3 id="popupTitle">Title</h3>
-                    <p id="popupDesc">Description goes here...</p>
-                </div>
-        <button id="nextCard" class="nav-btn" onclick="changeCard(1)">›</button>
+            <h3 id="popupTitle">Title</h3>
+            <p id="popupDesc">Description goes here...</p>
         </div>
-        
-        <!-------------------------------------------------------------------------------------->
-
-        <!-- Clickable camera -->
-        <img class="camera" src="camera.png" onclick="openPopup(0)" />
-
-        <!-- The popup container -->
-        <div id="popup">
-            <button id="prevCard" class="nav-btn" onclick="changeCard(-1)">‹</button>
-                <div class="popup-box" id="popupContent">
-                    <span class="close-btn" onclick="closePopup()">✖</span>
-                    <img id="popupImg" src="" alt="Popup Image">
-                    <h3 id="popupTitle">Title</h3>
-                    <p id="popupDesc">Description goes here...</p>
-                </div>
-        <button id="nextCard" class="nav-btn" onclick="changeCard(1)">›</button>
-        </div>
-
-        <!-------------------------------------------------------------------------------------->
-
-        <!-- Clickable pencil and shavings -->
-        <img class="shavings" src="shavings.png" onclick="openPopup(0)" />
-        <img class="pencil" src="pencil.png" onclick="openPopup(0)" />
-
-        <!-- The popup container -->
-        <div id="popup">
-            <button id="prevCard" class="nav-btn" onclick="changeCard(-1)">‹</button>
-                <div class="popup-box" id="popupContent">
-                    <span class="close-btn" onclick="closePopup()">✖</span>
-                    <img id="popupImg" src="" alt="Popup Image">
-                    <h3 id="popupTitle">Title</h3>
-                    <p id="popupDesc">Description goes here...</p>
-                </div>
-        <button id="nextCard" class="nav-btn" onclick="changeCard(1)">›</button>
-        </div>
-
-        <!-------------------------------------------------------------------------------------->
-
-        <!-- Clickable Laptop -->
-        <img class="laptop" src="Laptop.png" onclick="openPopup(0)" />
-
-        <!-- The popup container -->
-        <div id="popup">
-            <button id="prevCard" class="nav-btn" onclick="changeCard(-1)">‹</button>
-                <div class="popup-box" id="popupContent">
-                    <span class="close-btn" onclick="closePopup()">✖</span>
-                    <img id="popupImg" src="" alt="Popup Image">
-                    <h3 id="popupTitle">Title</h3>
-                    <p id="popupDesc">Description goes here...</p>
-                </div>
-        <button id="nextCard" class="nav-btn" onclick="changeCard(1)">›</button>
-        </div>
-
-        <!-------------------------------------------------------------------------------------->
-
-        <!-- Clickable Laptop -->
-        <img class="matcha" src="matcha.png" onclick="openPopup(0)" />
-
-        <!-- The popup container -->
-        <div id="popup">
-            <button id="prevCard" class="nav-btn" onclick="changeCard(-1)">‹</button>
-                <div class="popup-box" id="popupContent">
-                    <span class="close-btn" onclick="closePopup()">✖</span>
-                    <img id="popupImg" src="" alt="Popup Image">
-                    <h3 id="popupTitle">Title</h3>
-                    <p id="popupDesc">Description goes here...</p>
-                </div>
-        <button id="nextCard" class="nav-btn" onclick="changeCard(1)">›</button>
-        </div>
-
-
+    </div>
 
     <script>
-        // Popup content array (customize this)
-            const cards = [
-                {
-                img: 'image1.jpg',
-                title: 'Photo 1',
-                desc: 'This is the description for photo 1.'
-                },
-                {
-                img: 'image2.jpg',
-                title: 'Photo 2',
-                desc: 'This is the description for photo 2.'
-                },
-                {
-                img: 'image3.jpg',
-                title: 'Photo 3',
-                desc: 'This is the description for photo 3.'
-                }
-            ];
+        let currentCarouselMedia = [];
+        let currentCarouselIndex = 0;
 
-        let currentCard = 0;
+        function openPopup(mediaList, title, desc) {
+            currentCarouselMedia = mediaList;
+            currentCarouselIndex = 0;
 
-            function openPopup(index) {
-                currentCard = index;
-                updatePopup();
-                document.getElementById('popup').style.display = 'flex';
+            updateCarouselMedia();
+            document.getElementById('popupTitle').textContent = title;
+            document.getElementById('popupDesc').textContent = desc;
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        function changeCarousel(direction) {
+            currentCarouselIndex += direction;
+
+            if (currentCarouselIndex < 0) {
+            currentCarouselIndex = currentCarouselMedia.length - 1;
+            } else if (currentCarouselIndex >= currentCarouselMedia.length) {
+            currentCarouselIndex = 0;
             }
 
-            function closePopup() {
-                document.getElementById('popup').style.display = 'none';
+            updateCarouselMedia();
+        }
+
+        function updateCarouselMedia() {
+            const mediaContainer = document.getElementById('carouselMedia');
+            mediaContainer.innerHTML = '';
+
+            const current = currentCarouselMedia[currentCarouselIndex];
+            let element;
+
+            if (current.endsWith('.mp4') || current.endsWith('.webm') || current.endsWith('.ogg')) {
+            element = document.createElement('video');
+            element.src = current;
+            element.controls = true;
+            element.classList.add('carousel-video');
+            } else {
+            element = document.createElement('img');
+            element.src = current;
+            element.alt = 'Carousel Media';
+            element.classList.add('carousel-image');
             }
 
-            function changeCard(n) {
-                currentCard += n;
-                if (currentCard < 0) currentCard = cards.length - 1;
-                if (currentCard >= cards.length) currentCard = 0;
-                updatePopup();
-            }
+            mediaContainer.appendChild(element);
+        }
 
-            function updatePopup() {
-                const card = cards[currentCard];
-                document.getElementById('popupImg').src = card.img;
-                document.getElementById('popupTitle').textContent = card.title;
-                document.getElementById('popupDesc').textContent = card.desc;
-            }
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
     </script>
 
 </body>

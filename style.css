@@ -1,4 +1,31 @@
-     body {
+    
+    /* Keyframe animation for flying in */
+    @keyframes flyInCenter {
+      0% {
+        opacity: 0;
+        transform: scale(0.5) translate(var(--start-x), var(--start-y));
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translate(0, 0);
+      }
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* General animation setup */
+    .animate-in {
+      animation: flyInCenter 1.2s ease-out forwards;
+    }
+
+    body {
       font-family: Arial, sans-serif;
 
       background-image: url('background.jpg');
@@ -14,6 +41,8 @@
       margin-top: 210px;
 
       z-index: 2000;
+      animation-delay: 0.2s;
+      animation: fade-in 3s ease-in-out forwards;
     }
 
     .headphones {
@@ -23,6 +52,10 @@
       top: 0px;
       left: 900px;
       z-index: 1000;
+
+      --start-x: 100px;
+      --start-y: -300px;
+      animation-delay: 0.2s;
     }
 
     .camera {
@@ -32,14 +65,23 @@
       left: 450px;
       z-index: 1000;
       top: 260px;
+
+      --start-x: -400px;
+      --start-y: 100px;
+      animation-delay: 0.2s;
     }
 
     .shavings {
+      --start-x: -300px;
+      --start-y: -300px;
+      animation-delay: 0.2s;
+
       width: 200px;
       cursor: pointer;
       position: absolute;
       top: 0px;
-      left: 300px
+      left: 300px;
+
     }
 
     .pencil {
@@ -48,6 +90,10 @@
       position: absolute;
       top: 20px;
       left: 400px;
+
+      --start-x: -200px;
+      --start-y: 100px;
+      animation-delay: 0.2s;
     }
 
     .laptop {
@@ -56,7 +102,10 @@
       position: fixed;
       top: 100px;
       left: 500px;
-
+      
+      --start-x: 500px;
+      --start-y: 200px;
+      animation-delay: 0.2s;
     }
 
     .matcha {
@@ -65,7 +114,31 @@
       position: absolute;
       top: 250px;
       left: 300px;
+
+      --start-x: -250px;
+      --start-y: 100px;
+      animation-delay: 0.2s;
     }
+
+  /* Keep your previous positioning and sizing */
+    .headphones,
+    .camera,
+    .shavings,
+    .pencil,
+    .laptop,
+    .matcha {
+      position: absolute;
+      cursor: pointer;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    .headphones { width: 300px; top: 0px; left: 900px; }
+    .camera     { width: 200px; top: 260px; left: 450px; }
+    .shavings   { width: 200px; top: 0px; left: 300px; }
+    .pencil     { width: 200px; top: 20px; left: 400px; }
+    .laptop     { width: 500px; top: 100px; left: 500px; }
+    .matcha     { width: 250px; top: 250px; left: 300px; }
 
     .nav-menu {
     position: fixed;
@@ -153,7 +226,7 @@
 
     .popup-box p {
       font-size: 14px;
-      color: #444;
+      color: #000000;
     }
 
     .close-btn {
@@ -176,6 +249,53 @@
       cursor: pointer;
       color: white;
     }
+
+    .carousel-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .carousel-image {
+      width: 280px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: contain;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .carousel-btn {
+      background: none;
+      border: none;
+      font-size: 30px;
+      color: #333;
+      cursor: pointer;
+      padding: 10px;
+      user-select: none;
+    }
+
+    .carousel-btn:hover {
+      color: #000;
+    }
+
+    .carousel-media {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  .carousel-image, .carousel-video {
+    max-width: 90%;
+    max-height: 300px;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+
 
     #prevCard { left: 10px; }
     #nextCard { right: 10px; }

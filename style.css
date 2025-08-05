@@ -43,6 +43,18 @@
       animation: fade-in 3s ease-in-out forwards;
     }
 
+    p {
+      text-align: left;
+      margin-left: 20px;
+      color: #000000;
+      margin-top: 350px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+
+      z-index: 2000;
+      animation-delay: 0.2s;
+      animation: fade-in 3s ease-in-out forwards;
+    }
+
     .headphones {
       width: 300px;
       cursor: pointer;

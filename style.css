@@ -44,15 +44,20 @@
     }
 
     p {
-      text-align: left;
-      margin-left: 20px;
       color: #000000;
-      margin-top: 350px;
       font-family: Georgia, 'Times New Roman', Times, serif;
 
       z-index: 2000;
       animation-delay: 0.2s;
       animation: fade-in 3s ease-in-out forwards;
+    }
+
+    .header-container {
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 330px;
+      margin-left: 50px;
     }
 
     .headphones {

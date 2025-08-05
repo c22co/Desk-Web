@@ -8,16 +8,9 @@
 
 <body>
   <h1>minas desk</h1>
-
-  <nav class="nav-menu">
-    <ul>
-      <li><a href="about.html">About Me</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-
+  
   <!-- Clickable items -->
-  <img class="headphones animate-in" src="headphones.png" onclick="openPopup(['camera1.jpg', 'camera2.jpg', 'camera3.jpg'], 'Headphones', 'Great for music and focus.')" />
+  <img class="headphones animate-in" src="headphones.png" onclick="openPopup(['images/how could.mp4', 'images/edelweis.mp4'], 'Music', 'Love singing and listening to music. You should see me in the car when I have aux.. A walking karaoke machine.')" />
   <img class="camera animate-in" src="camera.png" onclick="openPopup(
     ['images/cheese.jpeg', 'images/yum.jpeg', 'images/IMG_0376.jpeg', 'images/just the two of us.jpeg', 'images/running.mp4'], 
     'say cheese!', 
@@ -25,9 +18,9 @@
     <a href='https://c22co.github.io/Photography-Portfolio/' target='_blank'>Click here to see more</a>.`
   )" />
 
-  <img class="shavings animate-in" src="shavings.png" onclick="openPopup(['camera1.jpg', 'camera2.jpg', 'camera3.jpg'], 'What’s left after your masterpiece.')" />
-  <img class="pencil animate-in" src="pencil.png" onclick="openPopup(['camera1.jpg', 'camera2.jpg', 'camera3.jpg'], 'Pencil', 'Start your ideas here.')" />
-  <img class="laptop animate-in" src="Laptop.png" onclick="openPopup(['images/CAD.png', 'images/code.png', 'images/arduino.png'], 'Laptop', 'On my laptop, I am currently working on ')" />
+  <img class="shavings animate-in" src="shavings.png" onclick="openPopup(['images/cups.jpeg', 'images/pastels.jpeg', 'images/bones.jpeg', 'images/pot.jpeg'], 'shavings', 'These are some pieces I made during the school year in my life drawing class. All of these are traditional pieces but I also do digitial art as well!')" />
+  <img class="pencil animate-in" src="pencil.png" onclick="openPopup(['images/cups.jpeg', 'images/pastels.jpeg', 'images/bones.jpeg', 'images/pot.jpeg'], 'shavings', 'These are some pieces I made during the school year in my life drawing class. All of these are traditional pieces but I also do digitial art as well!')" />
+  <img class="laptop animate-in" src="Laptop.png" onclick="openPopup(['images/CAD.png', 'images/code.png', 'images/arduino.png'], 'Laptop', 'I’m currently working on a CAD project designing 3D-printed clickers, while also building websites for the Athena Award using HTML and CSS (you can find more about the Athena Award under the About Me section). In addition, I’ve recently started exploring hardware development through Arduino and Arduino IDE.')" />
   <img class="matcha animate-in" src="matcha.png" onclick="openPopup(['images/microfoam.jpeg', 'images/matcha process.mp4', 'images/mixed matcha.jpeg', 'images/matcha strawberry.jpeg', 'images/matcha1.jpeg', 'images/matcha2.mp4'], 'Matcha', 'love love love whisking whisking whisking microfoam microfoam microfoam, i need a good affordable matcha that is not effected by the shortage :( ')" />
 
     <!-- Single popup -->
@@ -60,6 +53,13 @@
             document.getElementById('popup').style.display = 'flex';
         }
 
+        // Allow clicking the background to close the popup
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('popup').addEventListener('click', function(e) {
+                if (e.target === this) closePopup();
+            });
+        });
+
         function changeCarousel(direction) {
             currentCarouselIndex += direction;
 
@@ -74,24 +74,42 @@
 
         function updateCarouselMedia() {
             const mediaContainer = document.getElementById('carouselMedia');
-            mediaContainer.innerHTML = '';
+            let current = currentCarouselMedia[currentCarouselIndex];
 
-            const current = currentCarouselMedia[currentCarouselIndex];
-            let element;
+            // Remove previous fade class if any
+            mediaContainer.classList.remove('fade');
 
-            if (current.endsWith('.mp4') || current.endsWith('.webm') || current.endsWith('.ogg')) {
-            element = document.createElement('video');
-            element.src = current;
-            element.controls = true;
-            element.classList.add('carousel-video');
-            } else {
-            element = document.createElement('img');
-            element.src = current;
-            element.alt = 'Carousel Media';
-            element.classList.add('carousel-image');
+            // Check if we already have a child and reuse it
+            let element = mediaContainer.firstChild;
+
+            // Determine if current media is video or image
+            const isVideo = current.endsWith('.mp4') || current.endsWith('.webm') || current.endsWith('.ogg');
+
+            if (!element || (isVideo && element.tagName !== 'VIDEO') || (!isVideo && element.tagName !== 'IMG')) {
+                // Remove old element if type changed
+                mediaContainer.innerHTML = '';
+                if (isVideo) {
+                    element = document.createElement('video');
+                    element.controls = true;
+                    element.className = 'carousel-video';
+                } else {
+                    element = document.createElement('img');
+                    element.alt = 'Carousel Media';
+                    element.className = 'carousel-image';
+                }
+                mediaContainer.appendChild(element);
             }
 
-            mediaContainer.appendChild(element);
+            // Fade out, change src, then fade in
+            element.classList.remove('fade');
+            setTimeout(() => {
+                if (isVideo) {
+                    element.src = current;
+                } else {
+                    element.src = current;
+                }
+                element.classList.add('fade');
+            }, 10);
         }
 
         function closePopup() {

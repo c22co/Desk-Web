@@ -1,5 +1,4 @@
-    
-    /* Keyframe animation for flying in */
+/* Keyframe animation for flying in */
     @keyframes flyInCenter {
       0% {
         opacity: 0;
@@ -27,7 +26,6 @@
 
     body {
       font-family: Arial, sans-serif;
-
       background-image: url('background.jpg');
         background-size: cover;
         background-repeat: no-repeat;
@@ -170,13 +168,25 @@
     }
 
     .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 20px;
-      cursor: pointer;
-      color: #888;
-    }
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 32px; /* bigger */
+  cursor: pointer;
+  color: #888;
+  background: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  z-index: 10;
+}
+.close-btn:hover {
+  background: #eee;
+  color: #000;
+}
 
     /* Navigation buttons */
     .nav-btn {
@@ -233,9 +243,21 @@
       position: absolute;
       top: 10px;
       right: 15px;
-      font-size: 20px;
+      font-size: 32px; /* bigger */
       cursor: pointer;
       color: #888;
+      background: #fff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      transition: background 0.2s, color 0.2s;
+      z-index: 10;
+    }
+    .close-btn:hover {
+      background: #eee;
+      color: #000;
     }
 
     /* Navigation buttons */
@@ -295,7 +317,60 @@
     object-fit: contain;
 }
 
+.carousel-image.fade, .carousel-video.fade {
+    transition: opacity 0.3s;
+    opacity: 1;
+}
+.carousel-image, .carousel-video {
+    opacity: 0.7;
+}
+.carousel-image.fade, .carousel-video.fade {
+    opacity: 1;
+}
+
 
 
     #prevCard { left: 10px; }
     #nextCard { right: 10px; }
+
+/* Responsive layout for clickable images */
+@media (max-width: 900px) {
+  .headphones, .camera, .shavings, .pencil, .laptop, .matcha {
+    position: static;
+    display: block;
+    margin: 20px auto;
+    width: 80vw !important;
+    max-width: 350px;
+    min-width: 120px;
+    top: unset !important;
+    left: unset !important;
+  }
+  h1 {
+    margin-left: 0;
+    margin-top: 40px;
+    text-align: center;
+  }
+  .nav-menu {
+    position: static;
+    margin: 20px auto;
+    right: unset;
+    top: unset;
+    text-align: center;
+  }
+}
+
+/* Responsive popup */
+@media (max-width: 600px) {
+  .popup-box {
+    width: 95vw;
+    padding: 10px;
+  }
+  .carousel-image, .carousel-video {
+    max-width: 95vw;
+    max-height: 40vh;
+  }
+  .carousel-btn {
+    font-size: 24px;
+    padding: 5px;
+  }
+}

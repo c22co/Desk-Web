@@ -4,4 +4,6 @@ Hello! This project is a website formatted as a desk to introduce my hobbies thr
 
 Features 
 - Carousel
-- - Animation
+- Animation
+
+<img width="1920" height="1080" alt="desk ss" src="https://github.com/user-attachments/assets/f699c617-55fb-4335-956c-4f0c1cb70a9f" />
